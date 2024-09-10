@@ -1,0 +1,10 @@
+services:
+  node:
+    image: node:latest
+    container_name: node_app
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000" # Замените порт на нужный для вашего проекта
+    command: sh -c "${NODE_COMMAND}"
