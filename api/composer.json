@@ -4,7 +4,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/dbal": "^3",
@@ -13,11 +13,13 @@
         "doctrine/orm": "^3.2",
         "symfony/apache-pack": "^1.0",
         "symfony/console": "7.1.*",
+        "symfony/doctrine-bridge": "7.1.*",
         "symfony/dotenv": "7.1.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "7.1.*",
         "symfony/property-access": "7.1.*",
         "symfony/runtime": "7.1.*",
+        "symfony/security-bundle": "7.1.*",
         "symfony/serializer": "7.1.*",
         "symfony/validator": "7.1.*",
         "symfony/yaml": "7.1.*"
@@ -72,6 +74,7 @@
         }
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.6",
         "symfony/maker-bundle": "^1.61"
     }
 }
