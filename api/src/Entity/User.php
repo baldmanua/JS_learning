@@ -111,13 +111,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function fillWithDto(UserDto $userDto): static
+    public function fillWithDto(UserDto $dto): static
     {
-        if ($userDto->email !== null) {
-            $this->setEmail($userDto->email);
+        if ($dto->email !== null) {
+            $this->setEmail($dto->email);
         }
-        if ($userDto->roles !== null) {
-            $this->setRoles($userDto->roles);
+        if ($dto->roles !== null) {
+            $this->setRoles($dto->roles);
         }
         return $this;
     }

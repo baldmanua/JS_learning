@@ -2,26 +2,25 @@
 
 namespace App\Entity;
 
+use App\Dto\PostDto;
 use App\Repository\PostRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 #[ORM\Table(name: 'posts')]
 class Post
 {
+
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: "IDENTITY")]
     #[ORM\Column]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotBlank(message: 'Title can`t be blank')]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
-    #[Assert\NotBlank(message: 'Description can`t be blank')]
     private ?string $description = null;
 
     public function getId(): ?int
@@ -49,6 +48,18 @@ class Post
     public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function fillWithDto(PostDto $dto): static
+    {
+        if ($dto->title !== null) {
+            $this->setTitle($dto->title);
+        }
+        if ($dto->description !== null) {
+            $this->setDescription($dto->description);
+        }
 
         return $this;
     }

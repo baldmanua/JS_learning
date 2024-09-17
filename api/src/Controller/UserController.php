@@ -57,7 +57,6 @@ class UserController extends AbstractController
     #[Route('/{id}', name: 'edit', methods: ['PUT', 'PATCH'])]
     public function edit(User $user, #[MapRequestPayload(validationGroups: 'edit')] UserDto $userDto): JsonResponse
     {
-        /** @ToDo Figure out how to ignore current record email in validation */
         $user->fillWithDto($userDto);
 
         $this->em->persist($user);

@@ -13,7 +13,8 @@ use Symfony\Component\Validator\Constraints as Assert;
     fields: 'email',
     message: 'This email is already taken.',
     entityClass: User::class,
-    groups: ['UserDto', 'register', 'create', 'edit']
+    identifierFieldNames: ['id' => 'id'],
+    groups: ['UserDto', 'register', 'create']
 )]
 readonly class UserDto
 {
@@ -33,6 +34,9 @@ readonly class UserDto
 
         #[Assert\NotBlank(message: 'Password is required', groups: ['register'])]
         public ?string $password,
+
+        /** @ToDo figure out if I can bind route parameter here. It will allow to validate email doubles on update */
+        public ?int     $id = null,
 
     ){
     }
