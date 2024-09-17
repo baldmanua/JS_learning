@@ -18,7 +18,7 @@ class ApiAuthController extends AbstractController
     #[Route('/login', name: 'api_login', methods: ['POST'])]
     public function login(#[CurrentUser] ?User $user): JsonResponse
     {
-        /** @ToDo Add token generation */
+        /** @deprecated */
         return $this->json($user);
     }
 
